@@ -8,6 +8,9 @@ import { MeasurementChart } from "../components/MeasurementChart";
 import { MeasurementTrendChart } from "../components/MeasurementTrendChart";
 import { getMeasurementStatus } from "../utils/measurementStatus";
 
+import { PageContainer } from "../../../components/layout/PageContainer";
+import { AppHeader } from "../../../components/layout/AppHeader";
+
 /**
  * Main dashboard page for displaying measurement data, statistics, filters, and visualizations.
  * This component uses the useMeasurements hook to load and manage measurement data,
@@ -48,8 +51,8 @@ export function MeasurementsDashboardPage() {
   if (error) return <p>{error}</p>;
 
   return (
-    <main>
-      <h1>Quality Assurance Dashboard</h1>
+    <PageContainer>
+      <AppHeader />
 
       <MeasurementStats measurements={filteredMeasurements} />
 
@@ -63,7 +66,6 @@ export function MeasurementsDashboardPage() {
       <MeasurementChart measurements={filteredMeasurements} />
       <MeasurementTrendChart measurements={filteredMeasurements} />
       <MeasurementTable measurements={filteredMeasurements} />
-
-    </main>
+    </PageContainer>
   );
 }
